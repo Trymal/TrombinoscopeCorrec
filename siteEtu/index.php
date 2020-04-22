@@ -11,10 +11,11 @@
 	</header>
 
 	<form action="./inscription.php" method="post">
-		<input type="text" name="nom" placeholder="Nom">
-		<input type="text" name="prenom" placeholder="Pr&eacute;nom">
-		<input type="date" name="naissance" value="2000-01-01">
-		<select name="classe">
+		<input type="text" name="nom" placeholder="Nom" required>
+		<input type="text" name="prenom" placeholder="Pr&eacute;nom" required>
+		<input type="email" name="email" placeholder="Adresse mail" required>
+		<input type="date" name="naissance" value="2000-01-01" required>
+		<select name="classe" required>
 			<?php 
 
 			$handle = fopen('./classGrp.csv', 'r');
@@ -26,15 +27,16 @@
 
 			?>
 		</select>
-		<select name="goupe">
+		<select name="groupe" required>
 			<option value="G1">Groupe 1</option>
 			<option value="G2">Groupe 2</option>
 		</select>
-		<input type="file" name="imageEtu" accept="image/png, image/jpeg, image/jpg">
+		<input type="file" name="imageEtu" accept="image/png, image/jpeg, image/jpg" required>
+		<input type="password" name="mdp" required>
 		<input type="submit" value="Confirmer" onclick="alerte();">
 		<script>
 			function alerte(){
-				alert("En confirmant vous accordez l'utilisation de vos donn&eacute;es et de votre image par le personnel pédagogique uniquement, vos données ne seront partagées avec aucune personne tierce.");
+				alert("En confirmant vous accordez l'utilisation de vos données et de votre image par le personnel pédagogique uniquement, vos données ne seront partagées avec aucune personne tierce.");
 			}
 		</script>
 	</form>
