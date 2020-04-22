@@ -15,5 +15,6 @@
 	$handle = fopen('./comptes.csv', 'w');
 	fwrite($handle, $file."\n".$line);
 	fclose($handle);
+	header("Location: ./index.php");
 
 ?>
