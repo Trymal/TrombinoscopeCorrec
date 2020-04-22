@@ -21,7 +21,7 @@
 			$handle = fopen('./classGrp.csv', 'r');
 			while ($lignes = fgets($handle)) {
 				$lignes = explode(';', $lignes);
-				echo "<option value=\'".$lignes[0]."\'>".$lignes[0]."</option>";
+				echo "<option value=".$lignes[0].">".$lignes[0]."</option>";
 			}
 			fclose($handle);
 
