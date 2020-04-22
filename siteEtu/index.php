@@ -7,7 +7,7 @@
 <body>
 	<header>
 		<a href="./docAPI.html">Documentation de l'API</a>
-		<a href="./cleAPI.html">Obtenir une cle pour l'API</a>
+		<a href="./cleAPI.html">Obtenir une cl&eacute; pour l'API</a>
 	</header>
 
 	<form action="./inscription.php" method="post">
@@ -26,6 +26,17 @@
 
 			?>
 		</select>
+		<select name="goupe">
+			<option value="G1">Groupe 1</option>
+			<option value="G2">Groupe 2</option>
+		</select>
+		<input type="file" name="imageEtu" accept="image/png, image/jpeg, image/jpg" value="Choisir une image">
+		<input type="submit" value="Confirmer" onclick="alerte();">
+		<script>
+			function alerte(){
+				alert("En confirmant vous accordez l'utilisation de vos donn&eacute;es et de votre image par le personnel pédagogique uniquement, vos donn&eacute;es ne seront partagées avec aucune personne tierce.");
+			}
+		</script>
 	</form>
 </body>
 </html>
