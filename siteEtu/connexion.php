@@ -1,20 +1,28 @@
 <?php
-
-	$infos = array();
-	array_push($infos, $_POST['email'],hash('sha256', $_POST['mdp']);
-	$handle = fopen('./comptes.csv', 'r');
-	$found = false
-	while ($lignes = fgets($handle) && $found == false) {
-		$lignes = explode(";", $lignes);
-		if ($lignes[2] == $infos[0]) {
-			if ($lignes[3] == $infos[1]) {
-				header("Location: ./donnees.php");
-			}
-			else{
-				header("Location: ./index.php");
+	
+	session_start();
+	if (!isset($_SESSION['connected'])) {
+		$infos = array();
+		$handle = fopen('./comptes.csv', 'r');
+		array_push($infos, $_POST['email']);		
+		while ($lignes = fgets($handle)) {
+			echo $lignes;
+			$lignes = explode(";", $lignes);
+			if ($lignes[2] == $infos[0]) {
+				array_push(hash('sha256', $_POST['mdp'] . $lignes[8]));
+				if ($lignes[3] == $infos[1]) {
+					$_SESSION['connected'] = $_POST['email'];
+					header("Location: ./donnees.php");
+				}
+				else{
+					header("Location: ./index.php");
+				}
 			}
 		}
+		fclose($handle);
+		header("Location: ./index.php");
 	}
-	fclose($handle);
-
+	else{
+		header("Location: ./donnees.php");
+	}
 ?>

@@ -11,7 +11,7 @@
 	</header>
 
 	<div id="formulaire">
-		<form action="./inscription.php" method="post" id="inscript">
+		<form action="./inscription.php" method="POST" id="inscript" enctype="multipart/form-data">
 			<input type="text" name="nom" placeholder="Nom" required>
 			<input type="text" name="prenom" placeholder="Pr&eacute;nom" required>
 			<input type="email" name="email" placeholder="Adresse mail" required>
@@ -33,6 +33,10 @@
 				<option value="G2">Groupe 2</option>
 			</select>
 			<input type="file" name="imageEtu" accept="image/png, image/jpeg, image/jpg" required>
+			<?php
+
+			
+			?>
 			<input type="password" name="mdp" placeholder="Mot de passe" required>
 			<input type="submit" value="Confirmer" onclick="alerteDroits();">
 			<script>
@@ -42,12 +46,21 @@
 			</script>
 		</form>
 	</div>
-	<a href="#" id="switchConnect" onclick="switchConn();">D&eacute;j&agrave; inscrit ? Connectez vous</a>
+	<div id="changerForm">
+		<a href="./index.php?connexion=true" id="switchConnect">D&eacute;j&agrave; inscrit ? Connectez vous</a>
+	</div>
+	
+	
 	<script>
 		function switchConn(){
 			var form = document.getElementById('formulaire');
-			form = "<form action='./connexion.php' method='post' id='connect'><input type='email' name='email' placeholder='Adresse mail' required><input type='password' name='mdp' placeholder='Mot de passe' required></form>";
+			form.innerHTML = "<form action='./connexion.php' method='POST' id='connect'><input type='email' name='email' placeholder='Adresse mail' required><input type='password' name='mdp' placeholder='Mot de passe' required><input type='submit' value='Confirmer'></form>";
+			var texte = document.getElementById('changerForm');
+			texte.innerHTML = "<a href='./index.php' id='switchConnect'>Pas encore inscrit ?</a>";
 		}
 	</script>
+<?php if (isset($_GET['connexion'])) {
+		echo "<script>switchConn();</script>";
+	} ?>
 </body>
 </html>
