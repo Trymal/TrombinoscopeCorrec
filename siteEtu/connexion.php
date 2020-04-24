@@ -6,10 +6,9 @@
 		$handle = fopen('./comptes.csv', 'r');
 		array_push($infos, $_POST['email']);		
 		while ($lignes = fgets($handle)) {
-			echo $lignes;
 			$lignes = explode(";", $lignes);
 			if ($lignes[2] == $infos[0]) {
-				array_push(hash('sha256', $_POST['mdp'] . $lignes[8]));
+				array_push($infos, hash('sha256', $_POST['mdp']));
 				if ($lignes[3] == $infos[1]) {
 					$_SESSION['connected'] = $_POST['email'];
 					header("Location: ./donnees.php");

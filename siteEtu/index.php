@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if (isset($_SESSION['connected'])) {
+		header("Location: ./donnees.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,10 +39,6 @@
 				<option value="G2">Groupe 2</option>
 			</select>
 			<input type="file" name="imageEtu" accept="image/png, image/jpeg, image/jpg" required>
-			<?php
-
-			
-			?>
 			<input type="password" name="mdp" placeholder="Mot de passe" required>
 			<input type="submit" value="Confirmer" onclick="alerteDroits();">
 			<script>

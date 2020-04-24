@@ -7,9 +7,8 @@
 	$taille_image = $_FILES['imageEtu']['size'];
 	$image_temp_name = $_FILES['imageEtu']['tmp_name'];
 	move_uploaded_file($image_temp_name, "./files/$nom_image");
-	$randomCar = uniqid();
 
-	array_push($infos, $_POST['nom'],$_POST['prenom'],$_POST['email'],hash('sha256', $_POST['mdp'] . $randomCar),$_POST['naissance'],$_POST['classe'],$_POST['groupe'],$_POST['imageEtu'], $randomCar);
+	array_push($infos, $_POST['nom'],$_POST['prenom'],$_POST['email'],hash('sha256', $_POST['mdp']),$_POST['naissance'],$_POST['classe'],$_POST['groupe'],$_POST['imageEtu']);
 	foreach ($infos as $value) {
 		$line = $line . $value . ";";
 	}
