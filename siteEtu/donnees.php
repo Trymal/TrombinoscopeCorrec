@@ -41,14 +41,14 @@
 		<script>
 			function modifDonnees(){
 				var zoneInfos = document.getElementById('liste');
-				var nom = document.getElementById('nomFam').substr(6);
-				var prenom = document.getElementById('prenom').substr(9);
-				var mail = document.getElementById('mail').substr(15);
-				var dateNaissance = document.getElementById('dateNais').substr(20);
-				var classe = document.getElementById('class').substr(9);
-				var groupe = document.getElementById('grp').substr(9);
+				var nom = document.getElementById('nomFam').textContent.substring(6);
+				var prenom = document.getElementById('prenom').textContent.substring(9);
+				var mail = document.getElementById('mail').textContent.substring(15);
+				var dateNaissance = document.getElementById('dateNais').textContent.substring(20);
+				var classe = document.getElementById('class').textContent.substring(9);
+				var groupe = document.getElementById('grp').textContent.substring(9);
 
-				zoneInfo.innerHTML = "<form action='./modif.php' method='POST' id='modif' enctype='multipart/form-data'><input type='text' name='nom' value='" + nom + "' required><input type='text' name='prenom' value='" + prenom + "' required><input type='email' name='email' value='" + mail +"' required><input type='date' name='naissance' value='" + dateNais + "' required><select name='classe' required><?php $handle = fopen('./classGrp.csv', 'r');while ($lignes = fgets($handle)) {$lignes = explode(';', $lignes);echo '<option value='.$lignes[0].'>'.$lignes[0].'</option>';}fclose($handle);?></select><select name='groupe'required><option value='G1'>Groupe 1</option><option value='G2'>Groupe 2</option></select><input type='file' name='imageEtu' accept='image/png, image/jpeg, image/jpg' required><input type='password' name='mdp' placeholder='Nouveau mot de passe' required><input type='submit' value='Confirmer'></form>"
+				zoneInfos.innerHTML = "<form action='./modif.php' method='POST' id='modif' enctype='multipart/form-data'><input type='text' name='nom' value='" + nom + "' required><input type='text' name='prenom' value='" + prenom + "' required><input type='email' name='email' value='" + mail +"' required><input type='password' name='mdp' placeholder='Nouveau mot de passe' required><input type='date' name='naissance' value='" + dateNaissance + "' required><select name='classe' required><?php $handle = fopen('./classGrp.csv', 'r');while ($lignes = fgets($handle)) {$lignes = explode(';', $lignes);echo '<option value='.$lignes[0].'>'.$lignes[0].'</option>';}fclose($handle);?></select><select name='groupe'required><option value='G1'>Groupe 1</option><option value='G2'>Groupe 2</option></select><input type='file' name='imageEtu' id='imageEtu' accept='image/png, image/jpeg, image/jpg'><input type='submit' value='Confirmer'></form>";
 			}
 		</script>
 	</div>
