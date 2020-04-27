@@ -22,6 +22,19 @@
 	$handle = fopen('./comptes.csv', 'w');
 	fwrite($handle, $file."\n".$line);
 	fclose($handle);
+
+	//Ecriture des logs
+	$handle = fopen('./logs.csv', 'r');
+	$file = '';
+	while ($lignes = fgets($handle)) {
+		$file = $file.$lignes;
+	}
+	fclose($handle);
+	$handle = fopen('./logs.csv', 'w');
+	$line = "Inscription;" . date("d:m:H:i") . ";" . $_POST['email'] . "\n";
+	fwrite($handle, $file . "\n" . $line);
+	fclose($handle);
+
 	header("Location: ./index.php");
 
 ?>

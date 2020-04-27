@@ -13,7 +13,7 @@
 <body>
 	<header>
 		<a href="./docAPI.html">Documentation de l'API</a>
-		<a href="./cleAPI.html">Obtenir une cl&eacute; pour l'API</a>
+		<a href="./cleAPI.php">Obtenir une cl&eacute; pour l'API</a>
 	</header>
 
 	<div id="formulaire">

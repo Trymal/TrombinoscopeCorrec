@@ -1,8 +1,17 @@
 <?php
 
 	$etus = array();
-	
-	if ($_GET['option'] == 'classe') {
+	$authorizedKeys = file('./keys.csv');
+	$accesAPI = FALSE;
+	foreach ($authorizedKeys as $value) {
+		$ligne = explode(';', $value);
+		if ($ligne[0] == $_GET['key']) {
+			$accesAPI = TRUE;
+		}
+	}
+
+	if ($accesAPI == TRUE) {
+		if ($_GET['option'] == 'classe') {
 		$classe = $_GET['classe'];
 		$fichier = file('./comptes.csv');
 		for ($i=0; $i < sizeof($fichier); $i++) { 
@@ -28,6 +37,9 @@
 			}
 		}
 	}
+	}
+
+	
 
 	$json = json_encode($etus);
 		header("Content-type: application/json");
