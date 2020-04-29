@@ -33,8 +33,9 @@
 			$fichier = file('./comptes.csv');
 			for ($i=0; $i < sizeof($fichier); $i++) { 
 				$infos = explode(';', $fichier[$i]);
-				$infos = array_slice($infos, 0, sizeof($infos)-2);
+				$infos = array_slice($infos, 0, sizeof($infos)-1);
 				unset($infos[3]);
+				unset($infos[7]);
 				if ($infos[5] == $classe && $infos[6] == $groupe) {
 					array_push($etus, $infos);
 				}

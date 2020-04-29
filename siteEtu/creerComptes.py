@@ -31,7 +31,9 @@ for k in range(nb_comptes):
     mdp = (nom[0] + prenom + idunique).lower().encode()
     m_hash.update(mdp)
 
-    compte = "{};{};{};{};{};{};{};{};\n".format(nom, prenom, mail, m_hash.hexdigest(), dateNais, filiere, groupe, idunique)
+    urlImg = "http://correc.alwaysdata.net/files/" + mail + ".png"
+
+    compte = "{};{};{};{};{};{};{};{};{};\n".format(nom, prenom, mail, m_hash.hexdigest(), dateNais, filiere, groupe, idunique, urlImg)
 
     saveAccount(compte)
     copy('./photos/account.png',"./files/" + mail + ".png")

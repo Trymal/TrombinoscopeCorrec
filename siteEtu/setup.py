@@ -15,4 +15,4 @@ NOMS = ["Thiers", "Macron", "Hollande", "Grevy", "Carnot", "Casimir-Perier", "Fa
 
 FILIERES = ['L1-MIPI', "L2-MI", "LP-RS", "LPI-RIWS"]
 
-GROUPES = {"L1-MIPI": ["G1","G2"], "L2-MI": ["G1","G2"],"LP-RS": ["G1","G2"], "LPI-RIWS": ["G1","G2"]}
+GROUPES = {"L1-MIPI": ["A1","A2"], "L2-MI": ["B1","B2"],"LP-RS": ["C1","C2"], "LPI-RIWS": ["D1","D2"]}

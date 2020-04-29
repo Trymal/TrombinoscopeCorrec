@@ -18,11 +18,11 @@
 
 	<div id="formulaire">
 		<form action="./inscription.php" method="POST" id="inscript" enctype="multipart/form-data">
-			<input type="text" name="nom" placeholder="Nom" required>
-			<input type="text" name="prenom" placeholder="Pr&eacute;nom" required>
-			<input type="email" name="email" placeholder="Adresse mail" required>
-			<input type="date" name="naissance" value="2000-01-01" required>
-			<select name="classe" required>
+			<input type="text" name="nom" placeholder="Nom" required='required'>
+			<input type="text" name="prenom" placeholder="Pr&eacute;nom" required='required'>
+			<input type="email" name="email" placeholder="Adresse mail" required='required'>
+			<input type="date" name="naissance" value="2000-01-01" required='required'>
+			<select name="classe" onchange="selectGrp();" id="fil" required='required'>
 				<?php 
 
 				$handle = fopen('./classGrp.csv', 'r');
@@ -34,12 +34,41 @@
 
 				?>
 			</select>
-			<select name="groupe" required>
-				<option value="G1">Groupe 1</option>
-				<option value="G2">Groupe 2</option>
-			</select>
-			<input type="file" name="imageEtu" accept="image/png, image/jpeg, image/jpg" required>
-			<input type="password" name="mdp" placeholder="Mot de passe" required>
+			<?php 
+
+
+
+			?>
+			<div id="grp"></div>
+
+			<script>
+				
+				function selectGrp(){
+					var fils = new Array();
+					<?php
+						$infosFil = array();
+						$filieres = file("./classGrp.csv");
+						for ($i=0; $i < sizeof($filieres); $i++) { 
+							$ligne = explode(";", $filieres[$i]);
+							echo "fils[\"$ligne[0]\"] = [\"$ligne[1]\",\"" . substr($ligne[2],0,strlen($ligne[2])-2) . "\"];\n";
+
+						}
+							
+					?>
+					var filiere = document.getElementById('fil').value;
+					var zoneGrp = document.getElementById('grp');
+					var ligne = "";
+					
+					for (var i = 0; i < fils[filiere].length; i++) {
+						ligne += "<option value=\"" + fils[filiere][i] + "\">" + fils[filiere][i] + "</option>";
+					}
+					zoneGrp.innerHTML = "<select name='groupe' id='groupe' required='required'>" + ligne + "</select>";
+
+				}
+
+			</script>
+			<input type="file" name="imageEtu" accept="image/png, image/jpeg, image/jpg" required='required'>
+			<input type="password" name="mdp" placeholder="Mot de passe" required='required'>
 			<input type="submit" value="Confirmer" onclick="alerteDroits();">
 			<script>
 				function alerteDroits(){
@@ -56,7 +85,7 @@
 	<script>
 		function switchConn(){
 			var form = document.getElementById('formulaire');
-			form.innerHTML = "<form action='./connexion.php' method='POST' id='connect'><input type='email' name='email' placeholder='Adresse mail' required><input type='password' name='mdp' placeholder='Mot de passe' required><input type='submit' value='Confirmer'></form>";
+			form.innerHTML = "<form action='./connexion.php' method='POST' id='connect'><input type='email' name='email' placeholder='Adresse mail' required='required'><input type='password' name='mdp' placeholder='Mot de passe' required='required'><input type='submit' value='Confirmer'></form>";
 			var texte = document.getElementById('changerForm');
 			texte.innerHTML = "<a href='./index.php' id='switchConnect'>Pas encore inscrit ?</a>";
 		}
