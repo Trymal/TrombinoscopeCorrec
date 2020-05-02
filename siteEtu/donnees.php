@@ -34,7 +34,7 @@
 				}
 			}
 
-			echo "<div id='liste'><ul><li id='nomFam'>Nom : $line[0]</li><li id='prenom'>Prénom : $line[1]</li><li id='mail'>Adresse mail : $line[2]</li><li id='pwd'>Mot de passe : *****</li><li id='dateNais'>Date de naissance : $line[4]</li><li id='class'>Classe : $line[5]</li><li id='grp'>Groupe : $line[6]</li></ul></div>";
+			echo "<div id='liste'><ul><li id='nomFam'>Nom : $line[0]</li><li id='prenom'>Prénom : $line[1]</li><li id='mail'>Adresse mail : $line[2]</li><li id='pwd'>Mot de passe : *****</li><li id='dateNais'>Date de naissance : $line[4]</li><li id='class'>Filière : $line[5]</li><li id='grp'>Groupe : $line[6]</li></ul></div>";
 		?>
 
 		<button type="button" onclick="modifDonnees();">Changer les informations</button>

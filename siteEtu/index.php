@@ -34,11 +34,6 @@
 
 				?>
 			</select>
-			<?php 
-
-
-
-			?>
 			<div id="grp"></div>
 
 			<script>

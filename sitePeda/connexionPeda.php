@@ -8,7 +8,7 @@
 		while ($lignes = fgets($handle)) {
 			$lignes = explode(";", $lignes);
 			if ($lignes[2] == $infos[0]) {
-				array_push($infos, hash('sha256', $_POST['mdp'] . $lignes[7]));
+				array_push($infos, hash('sha256', $_POST['mdp'] . $lignes[4]));
 				if ($lignes[3] == $infos[1]) {
 					$_SESSION['connected'] = $_POST['email'];
 					header("Location: ./donnees.php");
