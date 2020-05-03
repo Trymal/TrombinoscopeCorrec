@@ -9,11 +9,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>Inscription</title>
+	<link rel="stylesheet" type="text/css" href="./style.css"/>
 </head>
 <body>
 	<header>
-		<a href="./docAPI.html">Documentation de l'API</a>
-		<a href="./cleAPI.php">Obtenir une cl&eacute; pour l'API</a>
+		<a href="./docAPI.html" id="elem1">Documentation de l'API</a>
+		<a href="./cleAPI.php" id="elem2">Obtenir une cl&eacute; pour l'API</a>
 	</header>
 
 	<div id="formulaire">

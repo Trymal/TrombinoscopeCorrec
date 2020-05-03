@@ -1,0 +1,23 @@
+html{
+	background-color: #eee;
+}
+
+header{
+	background-color: #222;
+	margin-left: -8px;
+	margin-right: -8px;
+	padding-right: 5px;
+	margin-top: -10px;
+	padding-bottom: 10px;
+}
+
+header a{
+	text-decoration: none;
+	font-size: 200%;
+	color: white;
+	display: inline;
+}
+
+.bold{
+	font-weight: bold;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Inscription</title>
+	<link rel="stylesheet" type="text/css" href="./style.css"/>
+</head>
+<body>
+	<header>
+		<a href="./docAPI.html" id="elem1">Documentation de l'API</a>
+		<a href="./cleAPI.php" id="elem2">Obtenir une cl&eacute; pour l'API</a>
+	</header>
+
+	<h1 id="titreDoc">Documentation de l'API</h1>
+	<p>Retour pour un élève :</p>
+	<ul>
+		<li>0 : Nom</li>
+		<li>1 : Prénom</li>
+		<li>2 : Adresse Mail</li>
+		<li>4 : Date de naissance</li>
+		<li>5 : Filière</li>
+		<li>6 : Groupe</li>
+		<li>8 : Lien pour la photo de profil</li>
+	</ul>
+	<h2>Options disponibles</h2>
+	<h3>Recherche par filiere</h3>
+	<p>Va renvoyer par Json tous les étudiants appartenant à la filière indiquée</p>
+	<p>Url : http://correc.alwaysdata.net/api.php?option=filiere&filiere=<span class="bold">Filière recherchée</span>&key=<span class="bold">Clé d'API</span></p>
+	<p>Filières acceptées</p>
+	<ul>
+		<li>L1-MIPI</li>
+		<li>L2-MI</li>
+		<li>LP-RS</li>
+		<li>LPI-RIWS</li>
+	</ul>
+
+	<h3>Recherche par groupe</h3>
+	<p>Va renvoyer par Json tous les étudiants appartenant au groupe indiqué</p>
+	<p>Url : http://correc.alwaysdata.net/api.php?option=groupe&groupe=<span class="bold">Groupe recherché</span>&key=<span class="bold">Clé d'API</span></p>
+	<p>Groupes acceptés</p>
+	<ul>
+		<li>A1 / A2 --> L1-MIPI</li>
+		<li>B2 / B2 --> L2-MI</li>
+		<li>C1 / C2 --> LP-RS</li>
+		<li>D1 / D2 --> LPI-RIWS</li>
+	</ul>
+
+	<h3>Recherche par étudiant</h3>
+	<p>Va renvoyer l'étudiant portant le nom et le prénom indiqués</p>
+	<p>Url : http://correc.alwaysdata.net/api.php?option=etu&etuNom=<span class="bold">Nom de famille</span>&etuPren=<span class="bold">Prénom</span>&key=<span class="bold">Clé d'API</span></p>
+
+</body>
+</html>
