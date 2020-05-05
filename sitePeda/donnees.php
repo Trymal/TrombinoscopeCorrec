@@ -6,11 +6,13 @@
 <head>
 	<meta charset="utf-8">
 	<title>Données sur les étudiants</title>
+	<link rel="stylesheet" type="text/css" href="./style.css"/>
 </head>
 <body>
 	<form action="./deconnexion.php" id="butDeco">
 		<input type="submit" value="Déconnexion">
 	</form>
+	<button onclick="window.print();">Impression</button>
 	<form id="choisirFil">
 		<select id="listFil" onchange="getInfos();">
 			<option>Filière</option>
@@ -89,7 +91,7 @@
 						cpt = 0;
 						ligne += "</tr>";
 					}
-					ligne += "<td><div class='nom'>" + infosJson[i][0] + " " + infosJson[i][1] + "</div><div class='photo' onclick=\"getInfosEtu(" + "\'" + infosJson[i][0] + "\'" + "," + "\'" + infosJson[i][1] + "\');\"><img src=\"" + infosJson[i][8] + "\" alt='Photo etu' height='206' weight='206'/></div></td>";
+					ligne += "<td><div class='nom'>" + infosJson[i][0] + " " + infosJson[i][1] + "</div><div class='photo' onclick=\"getInfosEtu(" + "\'" + infosJson[i][0] + "\'" + "," + "\'" + infosJson[i][1] + "\');\"><img src=\"" + infosJson[i][8] + "\" alt='Photo etu' height='206' weight='206' class='imgEtu'/></div></td>";
 					cpt++;
 				}
 				if (ligne.substr(ligne.length - 5) == "</tr>") {

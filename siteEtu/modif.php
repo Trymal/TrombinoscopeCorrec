@@ -4,9 +4,10 @@
 	$taille_image = $_FILES['imageEtu']['size'];
 	$image_temp_name = $_FILES['imageEtu']['tmp_name'];
 	move_uploaded_file($image_temp_name, "./files/$nom_image");
+	$urlImg = "http://correc.alwaysdata.net/files/" . $nom_image;
 	$randomCar = uniqid();
 	$_POST['mdp'] = hash('sha256', $_POST['mdp'] . $randomCar);
-	$ligne = implode(';', $_POST) . ";$randomCar";
+	$ligne = implode(';', $_POST) . ";$randomCar;$urlImg;";
 	$fichier = file('./csv/comptes.csv');
 	for ($i=0; $i < sizeof($fichier); $i++) { 
 		$infos = explode(';', $fichier[$i]);

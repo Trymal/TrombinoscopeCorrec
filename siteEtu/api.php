@@ -49,7 +49,7 @@
 			$fichier = file('./csv/comptes.csv');
 			for ($i=0; $i < sizeof($fichier); $i++) { 
 				$infos = explode(';', $fichier[$i]);
-				$infos = array_slice($infos, 0, sizeof($infos) -1);
+				$infos = array_slice($infos, 0, sizeof($infos)-1);
 				unset($infos[3]);
 				unset($infos[7]);
 				if ($infos[0] == $_GET['etuNom'] && $infos[1] == $_GET['etuPren']) {

@@ -9,14 +9,22 @@
 <head>
 	<meta charset="utf-8">
 	<title>Accueil</title>
+	<link rel="stylesheet" type="text/css" href="./style.css"/>
 </head>
 <body>
 	<div id="formulaire">
+		<label for="inscript" class="mainTitle">Inscription</label>
 		<form action="./inscriptionPeda.php" method="POST" id="inscript" enctype="multipart/form-data">
-			<input type="text" name="nom" placeholder="Nom" required>
-			<input type="text" name="prenom" placeholder="Pr&eacute;nom" required>
-			<input type="email" name="email" placeholder="Adresse mail" required>
-			<input type="password" name="mdp" placeholder="Mot de passe" required>
+			<label for="noms">Nom et prénom</label>
+			<div id="noms">
+				<input type="text" name="nom" placeholder="Nom" required>
+				<input type="text" name="prenom" placeholder="Pr&eacute;nom" required>
+			</div>
+			<label for="mailmdp">Mail et mot de passe</label>
+			<div id="mailmdp">
+				<input type="email" name="email" placeholder="Adresse mail" required>
+				<input type="password" name="mdp" placeholder="Mot de passe" required>
+			</div>
 			<input type="submit" value="Confirmer">
 		</form>
 	</div>
@@ -27,7 +35,7 @@
 	<script>
 		function switchConn(){
 			var form = document.getElementById('formulaire');
-			form.innerHTML = "<form action='./connexionPeda.php' method='POST' id='connect'><input type='email' name='email' placeholder='Adresse mail' required><input type='password' name='mdp' placeholder='Mot de passe' required><input type='submit' value='Confirmer'></form>";
+			form.innerHTML = "<label for='connect' class='mainTitle'>Connexion</label><form action='./connexionPeda.php' method='POST' id='connect'><input type='email' name='email' placeholder='Adresse mail' required><input type='password' name='mdp' placeholder='Mot de passe' required><input type='submit' value='Confirmer'></form>";
 			var texte = document.getElementById('changerForm');
 			texte.innerHTML = "<a href='./index.php' id='switchConnect'>Pas encore inscrit ?</a>";
 		}
