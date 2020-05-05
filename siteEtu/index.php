@@ -15,27 +15,38 @@
 	<header>
 		<a href="./docAPI.html" id="elem1">Documentation de l'API</a>
 		<a href="./cleAPI.php" id="elem2">Obtenir une cl&eacute; pour l'API</a>
+		<a href="./index.php" id="elem3">Accueil</a>
 	</header>
 
 	<div id="formulaire">
 		<form action="./inscription.php" method="POST" id="inscript" enctype="multipart/form-data">
-			<input type="text" name="nom" placeholder="Nom" required='required'>
-			<input type="text" name="prenom" placeholder="Pr&eacute;nom" required='required'>
-			<input type="email" name="email" placeholder="Adresse mail" required='required'>
-			<input type="date" name="naissance" value="2000-01-01" required='required'>
-			<select name="classe" onchange="selectGrp();" id="fil" required='required'>
-				<?php 
+			<label for="nompren">Nom et prénom</label>
+			<div id="nompren">
+				<input type="text" name="nom" placeholder="Nom" required='required'>
+				<input type="text" name="prenom" placeholder="Pr&eacute;nom" required='required'>
+			</div>
+			<label for="infosAnnex">Mail et date de naissance</label>
+			<div id="infosAnnex">
+				<input type="email" name="email" placeholder="Adresse mail" required='required'>
+				<input type="date" name="naissance" value="2000-01-01" required='required'>
+			</div>
+			<label for="fili">Filière et groupe</label>
+			<div id="fili">
+				<select name="classe" onchange="selectGrp();" id="fil" required='required'>
+					<?php 
 
-				$handle = fopen('./classGrp.csv', 'r');
-				while ($lignes = fgets($handle)) {
-					$lignes = explode(';', $lignes);
-					echo "<option value=".$lignes[0].">".$lignes[0]."</option>";
-				}
-				fclose($handle);
+					$handle = fopen('./classGrp.csv', 'r');
+					while ($lignes = fgets($handle)) {
+						$lignes = explode(';', $lignes);
+						echo "<option value=".$lignes[0].">".$lignes[0]."</option>";
+					}
+					fclose($handle);
 
-				?>
-			</select>
-			<div id="grp"></div>
+					?>
+				</select>
+
+				<div id="grp"></div>
+			</div>
 
 			<script>
 				
@@ -63,8 +74,13 @@
 				}
 
 			</script>
-			<input type="file" name="imageEtu" accept="image/png, image/jpeg, image/jpg" required='required'>
-			<input type="password" name="mdp" placeholder="Mot de passe" required='required'>
+			<label for="img">Photo de profil</label>
+			<div id="img">
+				<input type="file" name="imageEtu" accept="image/png, image/jpeg, image/jpg" required='required'>
+			</div>
+			<div id="passwd">
+				<input type="password" name="mdp" placeholder="Mot de passe" required='required'>
+			</div>
 			<input type="submit" value="Confirmer" onclick="alerteDroits();">
 			<script>
 				function alerteDroits(){
@@ -81,7 +97,7 @@
 	<script>
 		function switchConn(){
 			var form = document.getElementById('formulaire');
-			form.innerHTML = "<form action='./connexion.php' method='POST' id='connect'><input type='email' name='email' placeholder='Adresse mail' required='required'><input type='password' name='mdp' placeholder='Mot de passe' required='required'><input type='submit' value='Confirmer'></form>";
+			form.innerHTML = "<label for='connect'>Mail et mot de passe</label><form action='./connexion.php' method='POST' id='connect'><input type='email' name='email' placeholder='Adresse mail' required='required'><input type='password' name='mdp' placeholder='Mot de passe' required='required'><input type='submit' value='Confirmer'></form>";
 			var texte = document.getElementById('changerForm');
 			texte.innerHTML = "<a href='./index.php' id='switchConnect'>Pas encore inscrit ?</a>";
 		}

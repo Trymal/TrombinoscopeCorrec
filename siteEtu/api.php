@@ -1,7 +1,7 @@
 <?php
 
 	$etus = array();
-	$authorizedKeys = file('./keys.csv');
+	$authorizedKeys = file('./csv/keys.csv');
 	$accesAPI = FALSE;
 	foreach ($authorizedKeys as $value) {
 		$ligne = explode(';', $value);
@@ -13,7 +13,7 @@
 	if ($accesAPI == TRUE) {
 		if ($_GET['option'] == 'filiere') {
 			$classe = $_GET['filiere'];
-			$fichier = file('./comptes.csv');
+			$fichier = file('./csv/comptes.csv');
 			for ($i=0; $i < sizeof($fichier); $i++) { 
 				$infos = explode(';', $fichier[$i]);
 				$infos = array_slice($infos, 0, sizeof($infos) -1);
@@ -30,7 +30,7 @@
 
 		elseif ($_GET['option'] == 'groupe') {
 			$groupe = $_GET['groupe'];
-			$fichier = file('./comptes.csv');
+			$fichier = file('./csv/comptes.csv');
 			for ($i=0; $i < sizeof($fichier); $i++) { 
 				$infos = explode(';', $fichier[$i]);
 				$infos = array_slice($infos, 0, sizeof($infos) -1);
@@ -46,7 +46,7 @@
 		}
 
 		elseif ($_GET['option'] == 'etu'){
-			$fichier = file('./comptes.csv');
+			$fichier = file('./csv/comptes.csv');
 			for ($i=0; $i < sizeof($fichier); $i++) { 
 				$infos = explode(';', $fichier[$i]);
 				$infos = array_slice($infos, 0, sizeof($infos) -1);

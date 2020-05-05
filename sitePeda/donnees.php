@@ -8,7 +8,7 @@
 	<title>Données sur les étudiants</title>
 </head>
 <body>
-	<form action="./deconnexion.php">
+	<form action="./deconnexion.php" id="butDeco">
 		<input type="submit" value="Déconnexion">
 	</form>
 	<form id="choisirFil">
@@ -61,7 +61,6 @@
 					}
 					ligne += "<td><div class='nom'>" + infosJson[i][0] + " " + infosJson[i][1] + "</div><div class='photo' onclick=\"getInfosEtu(" + "\'" + infosJson[i][0] + "\'" + "," + "\'" + infosJson[i][1] + "\');\"><img src=\"" + infosJson[i][8] + "\" alt='Photo etu' height='206' weight='206'/></div></td>";
 					cpt++;
-					//ligne += "<td><div class='nom'>" + infosJson[i]["0"] + " " + infosJson[i]["1"] + "</div><div class='photo'><img src=\"" + infosJson[i]["8"] + "\" alt='Photo etu' height='206' weight='206'/></div></td>";
 				}
 				if (ligne.substr(ligne.length - 5) == "</tr>") {
 					ligne += "</table>";

@@ -7,7 +7,7 @@
 	$randomCar = uniqid();
 	$_POST['mdp'] = hash('sha256', $_POST['mdp'] . $randomCar);
 	$ligne = implode(';', $_POST) . ";$randomCar";
-	$fichier = file('./comptes.csv');
+	$fichier = file('./csv/comptes.csv');
 	for ($i=0; $i < sizeof($fichier); $i++) { 
 		$infos = explode(';', $fichier[$i]);
 		if ($infos[2] == $_POST['email']) {
@@ -18,7 +18,7 @@
 		}
 	}
 	$file = implode("\n", $fichier);
-	$handle = fopen('./comptes.csv', 'w');
+	$handle = fopen('./csv/comptes.csv', 'w');
 	ftruncate($handle, 0);
 	fwrite($handle, $file);
 	fclose($handle);

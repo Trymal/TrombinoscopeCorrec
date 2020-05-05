@@ -14,24 +14,24 @@
 	foreach ($infos as $value) {
 		$line = $line . $value . ";";
 	}
-	$handle = fopen('./comptes.csv', 'r');
+	$handle = fopen('./csv/comptes.csv', 'r');
 	$file = '';
 	while ($lignes = fgets($handle)) {
 		$file = $file.$lignes;
 	}
 	fclose($handle);
-	$handle = fopen('./comptes.csv', 'w');
+	$handle = fopen('./csv/comptes.csv', 'w');
 	fwrite($handle, $file."\n".$line);
 	fclose($handle);
 
 	//Ecriture des logs
-	$handle = fopen('./logs.csv', 'r');
+	$handle = fopen('./csv/logs.csv', 'r');
 	$file = '';
 	while ($lignes = fgets($handle)) {
 		$file = $file.$lignes;
 	}
 	fclose($handle);
-	$handle = fopen('./logs.csv', 'w');
+	$handle = fopen('./csv/logs.csv', 'w');
 	$line = "Inscription;" . date("d:m:H:i") . ";" . $_POST['email'] . "\n";
 	fwrite($handle, $file . "\n" . $line);
 	fclose($handle);
