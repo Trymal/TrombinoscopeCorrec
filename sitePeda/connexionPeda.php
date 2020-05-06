@@ -2,6 +2,7 @@
 	
 	session_start();
 	if (!isset($_SESSION['connected'])) {
+		//Si la session n'existe pas on procède à la vérification des informations
 		$infos = array();
 		$handle = fopen('./comptes.csv', 'r');
 		array_push($infos, $_POST['email']);		
@@ -22,6 +23,7 @@
 		header("Location: ./index.php");
 	}
 	else{
+		//Si la session existe on redirige l'utilisateur à la page du trombinoscope
 		header("Location: ./donnees.php");
 	}
 ?>

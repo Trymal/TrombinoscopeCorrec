@@ -8,6 +8,7 @@
 	foreach ($infos as $value) {
 		$line = $line . $value . ";";
 	}
+	//Ajout de la nouvelle ligne(lecture + écriture)
 	$handle = fopen('./comptes.csv', 'r');
 	$file = '';
 	while ($lignes = fgets($handle)) {
@@ -18,5 +19,5 @@
 	fwrite($handle, $file."\n".$line);
 	fclose($handle);
 
-	header('Location: ./index.php');
+	header('Location: ./index.php?connexion=true');
 ?>

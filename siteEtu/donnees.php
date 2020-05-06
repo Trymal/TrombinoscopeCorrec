@@ -2,25 +2,26 @@
 	session_start();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8"/>
 	<title>Donnees</title>
 	<link rel="stylesheet" type="text/css" href="./style.css"/>
 </head>
 <body>
 	<header>
 		<a href="./docAPI.html" id="elem1">Documentation de l'API</a>
-		<a href="./cleAPI.php" id="elem2">Obtenir une cl&eacute; pour l'API</a>
+		<a href="./cleAPI.php" id="elem2">Obtenir une clé pour l'API</a>
 		<a href="./index.php" id="elem3">Accueil</a>
 	</header>
 	<form action="./deconnexion.php">
-		<input type="submit" value="Déconnexion" id="deco">
+		<input type="submit" value="Déconnexion" id="deco"/>
 	</form>
 	<div id="infosUser">
-		<img src= <?php echo './files/' . $_SESSION['connected']. '.png'; ?> alt="ERROR" height="206" width="206"/>
+		<img src= <?php echo "\"./files/" . $_SESSION['connected']. ".png\""; ?> alt="ERROR" height="206" width="206"/>
 
 		<?php
+		//On écrit toutes les données de l'utilisateur à partir du fichier des comptes
 
 			$handle = fopen("./csv/comptes.csv", "r");
 			while ($lignes = fgets($handle)) {
@@ -43,11 +44,13 @@
 				var dateNaissance = document.getElementById('dateNais').textContent.substring(20);
 				var classe = document.getElementById('class').textContent.substring(9);
 				var groupe = document.getElementById('grp').textContent.substring(9);
+				//Si l'utilisateur souhaite modifier ses informations, on remplace les données par un formulaire contenant par défaut les informations précédentes
 
-				zoneInfos.innerHTML = "<form action='./modif.php' method='POST' id='modif' enctype='multipart/form-data'><input type='text' name='nom' value='" + nom + "' required><input type='text' name='prenom' value='" + prenom + "' required><input type='email' name='email' value='" + mail +"' required><input type='password' name='mdp' placeholder='Nouveau mot de passe' required><input type='date' name='naissance' value='" + dateNaissance + "' required><select id='filier' name='classe' onchange='selectGrps();' required><?php $handle = fopen('./classGrp.csv', 'r');while ($lignes = fgets($handle)) {$lignes = explode(';', $lignes);echo '<option value='.$lignes[0].'>'.$lignes[0].'</option>';}fclose($handle);?></select><div id='grps'><select name='groupe' required><option>---</option></select></div><input type='file' name='imageEtu' id='imageEtu' accept='image/png, image/jpeg, image/jpg'><input type='submit' value='Confirmer'></form>";
+				zoneInfos.innerHTML = "<form action='./modif.php' method='POST' id='modif' enctype='multipart/form-data'><input type='text' name='nom' value='" + nom + "' required='required'/><input type='text' name='prenom' value='" + prenom + "' required='required'/><input type='email' name='email' value='" + mail +"' required='required'/><input type='password' name='mdp' placeholder='Nouveau mot de passe' required='required'/><input type='date' name='naissance' value='" + dateNaissance + "' required='required'/><select id='filier' name='classe' onchange='selectGrps();' required='required'/><?php $handle = fopen('./classGrp.csv', 'r');while ($lignes = fgets($handle)) {$lignes = explode(';', $lignes);echo '<option value='.$lignes[0].'>'.$lignes[0].'</option>';}fclose($handle);?></select><div id='grps'><select name='groupe' required='required'/><option>---</option></select></div><input type='file' name='imageEtu' id='imageEtu' accept='image/png, image/jpeg, image/jpg'/><input type='submit' value='Confirmer'/></form>";
 			}
 				
 				function selectGrps(){
+					//Si on change de filière, on modifie les groupes associés
 					var fils = new Array();
 					<?php
 						$infosFil = array();
