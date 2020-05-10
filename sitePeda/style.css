@@ -39,6 +39,7 @@ input{
 	width: 20%;
 	margin-top: 15px;
 	text-align: center;
+	margin: auto;
 }
 
 .mainTitle{
@@ -72,4 +73,17 @@ table{
 
 td{
 	border: solid 1px #222;
+}
+
+#changerForm{
+	margin: auto;
+	text-align: center;
+}
+
+h1{
+	border-bottom: solid 3px black;
+}
+
+h2{
+	border-bottom: solid 2px black;
 }

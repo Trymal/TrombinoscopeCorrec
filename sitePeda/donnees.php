@@ -12,8 +12,10 @@
 	<form action="./deconnexion.php" id="butDeco">
 		<input type="submit" value="Déconnexion"/>
 	</form>
+	<h1>Trombinoscope des étudiants</h1>
 	<button onclick="window.print();">Impression</button>
 	<form id="choisirFil">
+		<h2>Recherche par filière</h2>
 		<select id="listFil" onchange="getInfos();">
 			<option value="">Filière</option>
 			<?php 
@@ -27,6 +29,7 @@
 
 			?>
 		</select>
+		<h2>Recherche par groupe</h2>
 		<select id="listGrp" onchange="getInfosGrp();">
 			<option value="">Groupe</option>
 			<?php 
@@ -75,6 +78,8 @@
 					ligne += "</tr></table>";
 				}
 				tableau.innerHTML = ligne;
+				zoneRech = document.getElementById("zoneRech");
+				zoneRech.innerHTML = "Étudiants de " + filiere;
 			}
 			function getInfosGrp(){
 				//Pour un choix par groupe
@@ -110,6 +115,8 @@
 				}
 				//On écrit le tableau dans la page
 				tableau.innerHTML = ligne;
+				zoneRech = document.getElementById("zoneRech");
+				zoneRech.innerHTML = "Étudiants de " + filiere;
 			}
 			function getInfosEtu(nomEtu,prenEtu){
 				//Pour avoir les données d'un seul étudiant
@@ -130,6 +137,7 @@
 		</script>
 	</form>
 	<div id="infosEtu"></div>
+	<h2 id="infoRech">Trombinoscope</h2>
 	<div id="trombi">
 			
 	</div>	

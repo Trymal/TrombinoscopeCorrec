@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="./style.css"/>
 </head>
 <body>
+	<h1>Accueil - Site pédagogique</h1>
 	<div id="formulaire">
 		<p class="mainTitle">Inscription</p>
 		<form action="./inscriptionPeda.php" method="POST" id="inscript" enctype="multipart/form-data">

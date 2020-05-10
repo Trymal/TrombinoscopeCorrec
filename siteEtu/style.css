@@ -70,6 +70,7 @@ input{
 	width: 20%;
 	margin-top: 15px;
 	text-align: center;
+	margin: auto;
 }
 
 #infosUser{
@@ -98,4 +99,9 @@ h2{
 
 h3{
 	border-bottom: solid 1px black;
+}
+
+#changerForm{
+	margin: auto;
+	text-align: center;
 }

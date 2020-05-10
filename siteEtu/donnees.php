@@ -17,6 +17,8 @@
 	<form action="./deconnexion.php">
 		<input type="submit" value="Déconnexion" id="deco"/>
 	</form>
+
+	<h1>Informations personnelles</h1>
 	<div id="infosUser">
 		<img src= <?php echo "\"./files/" . $_SESSION['connected']. ".png\""; ?> alt="ERROR" height="206" width="206"/>
 

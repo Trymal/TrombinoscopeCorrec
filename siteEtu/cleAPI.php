@@ -11,6 +11,8 @@
 		<a href="./cleAPI.php" id="elem2">Obtenir une clé pour l'API</a>
 		<a href="./index.php" id="elem3">Accueil</a>
 	</header>
+
+	<h1>Générer une clé pour utiliser l'API</h1>
 	
 	<div id="zoneCle">
 		<form action="./genKey.php" method="post">

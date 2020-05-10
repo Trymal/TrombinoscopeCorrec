@@ -19,6 +19,7 @@
 		<a href="./index.php" id="elem3">Accueil</a>
 	</header>
 
+	<h1>Accueil - Site étudiant</h1>
 	<div id="formulaire">
 		<form action="./inscription.php" method="POST" id="inscript" enctype="multipart/form-data">
 			<p>Nom et prénom</p>
