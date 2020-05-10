@@ -115,7 +115,7 @@
 				}
 				//On écrit le tableau dans la page
 				tableau.innerHTML = ligne;
-				zoneRech = document.getElementById("zoneRech");
+				zoneRech = document.getElementById("infoRech");
 				zoneRech.innerHTML = "Étudiants de " + filiere;
 			}
 			function getInfosEtu(nomEtu,prenEtu){
