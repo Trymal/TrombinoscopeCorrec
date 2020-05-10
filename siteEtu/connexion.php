@@ -22,7 +22,7 @@
 					}
 					fclose($handle);
 					$handle = fopen('./csv/logs.csv', 'w');
-					$line = "Connexion;Reussie;" . date("d:m:H:i") . ";" . $_POST['email'] . "\n";
+					$line = date("d:m:H:i") . ";" . "Connexion;Reussie;" . $_POST['email'] . "\n";
 					fwrite($handle, $file . "\n" . $line);
 					fclose($handle);
 					//Accès aux données de l'utilisateur
@@ -38,7 +38,7 @@
 					}
 					fclose($handle);
 					$handle = fopen('./csv/logs.csv', 'w');
-					$line = "Connexion;Echouee;" . date("d:m:H:i") . ";" . $_POST['email'] . "\n";
+					$line = date("d:m:H:i") . ";" . "Connexion;Echouee;" . $_POST['email'] . "\n";
 					fwrite($handle, $file . "\n" . $line);
 					fclose($handle);
 					header("Location: ./index.php");

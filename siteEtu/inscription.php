@@ -35,7 +35,7 @@
 	}
 	fclose($handle);
 	$handle = fopen('./csv/logs.csv', 'w');
-	$line = "Inscription;" . date("d:m:H:i") . ";" . $_POST['email'] . "\n";
+	$line = date("d:m:H:i") . ";" . "Inscription;Reussie;" . $_POST['email'] . "\n";
 	fwrite($handle, $file . $line);
 	fclose($handle);
 
